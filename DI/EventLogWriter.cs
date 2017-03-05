@@ -6,7 +6,7 @@ namespace DI
     {
         public void ActOnNotification(string message)
         {
-            // Write to event log here
+            Console.WriteLine("Event log writer fired");
         }
     }
 
@@ -14,7 +14,7 @@ namespace DI
     {
         public void ActOnNotification(string message)
         {
-            // Send email from here
+            Console.WriteLine("Email sender fired");
         }
     }
 
@@ -22,7 +22,7 @@ namespace DI
     {
         public void ActOnNotification(string message)
         {
-            // Send SMS from here
+            Console.WriteLine("SMSSender fired");
         }
     }
 }

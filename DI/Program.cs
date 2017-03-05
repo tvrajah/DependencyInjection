@@ -1,4 +1,6 @@
-﻿namespace DI
+﻿using Microsoft.Practices.Unity;
+
+namespace DI
 {
     class Program
     {
@@ -6,7 +8,7 @@
 
         static void Main(string[] args)
         {
-   
+            /*
             EventLogWriter writer = new EventLogWriter();
             AppPoolWatcher watcherWriter = new AppPoolWatcher(writer);
             watcherWriter.Notify("Sample message to event log.");
@@ -18,6 +20,13 @@
             SMSSender sms = new SMSSender();
             AppPoolWatcher watcherSms = new AppPoolWatcher(sms);
             watcherSms.Notify("Sample message to SMS.");
+            */
+
+            var container = new UnityContainer();
+            container.RegisterType<INofificationAction, EventLogWriter>();
+            var watcherWriter = container.Resolve<AppPoolWatcher>();
+            watcherWriter.Notify("Sample message to event log.");
+
         }
     }
 }
