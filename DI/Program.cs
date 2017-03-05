@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DI
+﻿namespace DI
 {
     class Program
     {
+        //https://www.codeproject.com/Articles/615139/An-Absolute-Beginners-Tutorial-on-Dependency-Inver
+
         static void Main(string[] args)
         {
+   
+            EventLogWriter writer = new EventLogWriter();
+            AppPoolWatcher watcherWriter = new AppPoolWatcher(writer);
+            watcherWriter.Notify("Sample message to event log.");
+
+            EmailSender email = new EmailSender();
+            AppPoolWatcher watcherEmail = new AppPoolWatcher(email);
+            watcherEmail.Notify("Sample message to Email.");
+
+            SMSSender sms = new SMSSender();
+            AppPoolWatcher watcherSms = new AppPoolWatcher(sms);
+            watcherSms.Notify("Sample message to SMS.");
         }
     }
 }
