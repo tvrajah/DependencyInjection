@@ -59,10 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppPoolWatcher.cs" />
-    <Compile Include="EventLogWriter.cs" />
-    <Compile Include="IEmailAction.cs" />
-    <Compile Include="INofificationAction.cs" />
-    <Compile Include="ISMSAction.cs" />
+    <Compile Include="IEmail.cs" />
+    <Compile Include="ICall.cs" />
+    <Compile Include="ISMS.cs" />
+    <Compile Include="NotificationHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

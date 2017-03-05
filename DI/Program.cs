@@ -25,7 +25,7 @@ namespace DI
             */
 
             /*
-             * WITH IOC - Confuguration via code           
+             * WITH UNITY IOC - Confuguration via code           
             var container = new UnityContainer();
             container.RegisterType<INofificationAction, EventLogWriter>();
             var watcherWriter = container.Resolve<AppPoolWatcher>();
@@ -33,10 +33,10 @@ namespace DI
             */
 
             /* 
-             * WITH IOC - configuration via xml */
+             * WITH UNITY IOC - configuration via xml */
             IUnityContainer container = new UnityContainer().LoadConfiguration();
             var watcherWriter = container.Resolve<AppPoolWatcher>();
-            watcherWriter.Notify("Sample message to event log.");
+            watcherWriter.Notify("ALERT : An error occured, please ensure that the systems are in order!!");
         }
     }
 }

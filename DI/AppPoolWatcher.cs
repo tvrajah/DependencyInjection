@@ -3,21 +3,32 @@
     class AppPoolWatcher
     {
         // Handle to EventLog writer to write to the logs
-        INofificationAction action = null;
+        ICall call = null;
+        IEmail email = null;
+        ISMS sms = null;
 
-        public AppPoolWatcher(INofificationAction concreteImplementation)
+        public AppPoolWatcher(ICall call, IEmail email, ISMS sms)
         {
-            this.action = concreteImplementation;
+            this.call = call;
+            this.email = email;
+            this.sms = sms;
         }
 
         // This function will be called when the app pool has problem
         public void Notify(string message)
         {
-            if (action == null)
+            if (call != null)
             {
-                // Here we will map the abstraction i.e. interface to concrete class 
+                call.Call(message);
             }
-            action.ActOnNotification(message);
+            if (email != null)
+            {
+                email.Email(message);
+            }
+            if (sms != null)
+            {
+                sms.Sms(message);
+            }
         }
     }
 }
