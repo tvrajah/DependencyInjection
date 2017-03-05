@@ -10,7 +10,7 @@ namespace DI
         }
     }
 
-    class EmailSender : INofificationAction
+    class EmailSender : IEmailAction
     {
         public void ActOnNotification(string message)
         {
@@ -18,7 +18,7 @@ namespace DI
         }
     }
 
-    class SMSSender : INofificationAction
+    class SMSSender : ISMSAction
     {
         public void ActOnNotification(string message)
         {
